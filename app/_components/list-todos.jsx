@@ -13,7 +13,7 @@ function ListTodos() {
 
   const memoizedHandleTab = useCallback((activeTab) => {
     setActiveTab(activeTab)
-  }, [activeTab])
+  }, [])
 
   const handleAccordion = (id) => {
     activeAccordion === id ? setActiveAccordion(null) : setActiveAccordion(id)
@@ -37,17 +37,19 @@ function ListTodos() {
   }, [activeTab, todos])
 
   return (
-    <div className='w-[60%] min-h-screen p-12'>
+    <div className='w-[60%] min-h-screen pt-12 px-12'>
        <h3 className="text-[28px] text-blue-dark font-medium mt-10">Todo Task</h3>
       <TodoActiveTabs activeTab={activeTab} handleTabClick={memoizedHandleTab} />
-      <div className='todo-container text-[#313131] space-y-2'>
-        {filteredTodos.map((todo, i) => (
-          <TodoItem key={i} 
+      <div className='todo-container max-h-[68vh] overflow-y-auto text-[#313131] space-y-2'>
+        {filteredTodos.length > 0 ? filteredTodos.map((todo) => (
+          <TodoItem key={todo.id} 
           todo={todo} 
           isOpen={todo.id === activeAccordion} 
           handleAccordion={handleAccordion}
           />
-        ))}
+        )) : (
+          <p>No todo available</p>
+        )}
       </div>
     </div>
   )

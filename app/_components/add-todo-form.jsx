@@ -20,7 +20,7 @@ function AddTodoForm() {
     formState: { errors },
     reset
   } = useForm({
-    resolver: zodResolver(addTodoFormSchema),
+    resolver: zodResolver(addTodoFormSchema)
   });
 
   const dispatch = useDispatch()
