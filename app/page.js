@@ -7,7 +7,7 @@ const ReduxProvider = dynamic(() => import("@/lib/redux-provider"), { ssr: false
 export default function Home() {
   return (
     <ReduxProvider>
-      <main className="flex">
+      <main className="flex flex-col md:flex-row">
         <AddTodoForm />
         <ListTodos />
       </main>

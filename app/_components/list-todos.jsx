@@ -37,10 +37,10 @@ function ListTodos() {
   }, [activeTab, todos])
 
   return (
-    <div className='w-[60%] min-h-screen pt-12 px-12'>
+    <div className='w-full md:w-[60%] min-h-screen pt-12 px-6 sm:px-12'>
        <h3 className="text-[28px] text-blue-dark font-medium mt-10">Todo Task</h3>
       <TodoActiveTabs activeTab={activeTab} handleTabClick={memoizedHandleTab} />
-      <div className='todo-container max-h-[68vh] overflow-y-auto text-[#313131] space-y-2'>
+      <div className='todo-container md:max-h-[68vh] overflow-y-auto text-[#313131] space-y-2'>
         {filteredTodos.length > 0 ? filteredTodos.map((todo) => (
           <TodoItem key={todo.id} 
           todo={todo} 

@@ -39,7 +39,7 @@ function TodoItem({ todo, isOpen, handleAccordion }) {
   };
 
   const onSubmit = (data) => {
-    dispatch(updateTodo({...data, id: todo.id}))
+    dispatch(updateTodo({...data, id: todo.id, isCompleted: todo.isCompleted}))
 
     reset()
 
@@ -52,7 +52,7 @@ function TodoItem({ todo, isOpen, handleAccordion }) {
   }
 
   return (
-    <div onClick={() => handleAccordion(todo.id)} className="border boder-[#E4E9F2] rounded-[4px] px-4 py-3">
+    <div onClick={() => {handleAccordion(todo.id); setIsEdit(false)}} className="border boder-[#E4E9F2] rounded-[4px] px-4 py-3">
       <form onSubmit={handleSubmit(onSubmit)}>
       <div className="title flex gap-2 justify-between">
         <label className="mt-0.5">
@@ -83,11 +83,11 @@ function TodoItem({ todo, isOpen, handleAccordion }) {
           {!isEdit ? <p className={`${todo.isCompleted && "text-[#B6B6B6] line-through"} my-3`}>{todo.description}</p> :
           <textarea
           onClick={(e) => e.stopPropagation()}
-          className={`rounded-[4px] w-[calc(100%-33px)] outline outline-1 focus:outline-[1.5px] my-2 px-[5px] py-1 ml-0.5 max-h-[50vh] ${errors.description ? "focus:outline-red-500" : "focus:outline-blue-dark"}`}
+          className={`rounded-[4px] w-[calc(100%-33px)] outline outline-1 focus:outline-[1.5px] my-2 px-[5px] py-1 ml-0.5 max-h-[40vh] ${errors.description ? "focus:outline-red-500" : "focus:outline-blue-dark"}`}
           {...register("description")}
           id="description"
           name="description"
-          rows="3"
+          rows="4"
           placeholder="Enter task description"
         ></textarea>
           }
@@ -104,8 +104,8 @@ function TodoItem({ todo, isOpen, handleAccordion }) {
               </div>
               ) : (
                 <div className="space-x-2 mr-7">
-                <button type="submit" className="border rounded-[4px] px-3 py-1 hover:bg-blue-dark hover:text-white" onClick={(e) => {e.stopPropagation();}}>Update</button>
-                <button type="button" className="border rounded-[4px] px-3 py-1 hover:bg-blue-dark hover:text-white" onClick={(e) => {e.stopPropagation(); setIsEdit(false)}}>Cancel</button>
+                <button type="submit" className="border rounded-[4px] px-2 sm:px-3 py-1 hover:bg-blue-dark hover:text-white" onClick={(e) => {e.stopPropagation();}}>Update</button>
+                <button type="button" className="border rounded-[4px] px-2 sm:px-3 py-1 hover:bg-blue-dark hover:text-white" onClick={(e) => {e.stopPropagation(); setIsEdit(false)}}>Cancel</button>
               </div>
               )
             }

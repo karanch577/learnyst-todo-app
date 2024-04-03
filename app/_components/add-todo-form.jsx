@@ -31,7 +31,7 @@ function AddTodoForm() {
     reset()
   }
   return (
-    <div className="w-[40%] min-h-screen bg-blue-light p-12">
+    <div className="w-full md:w-[40%] min-h-screen bg-blue-light p-6 sm:p-12">
       <h3 className="text-[28px] text-blue-dark font-medium mt-10">Add Task</h3>
 
       <form onSubmit={handleSubmit(onSubmit)}>
