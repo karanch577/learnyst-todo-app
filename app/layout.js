@@ -9,7 +9,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "Todo App",
-  description: "Assessment task by Learnyst",
+  description: "Assignment task by Learnyst",
 };
 
 export default function RootLayout({ children }) {

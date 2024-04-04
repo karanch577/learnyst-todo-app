@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "@/lib/features/todos/todosSlice";
 import { v4 as uuidv4 } from 'uuid';
 
+// form schema
 const addTodoFormSchema = z.object({
   title: z.string().trim().min(1, "Title is required"),
   description: z.string().trim().min(1, "Description is required"),

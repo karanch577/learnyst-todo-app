@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+// form schema
 const addTodoFormSchema = z.object({
   title: z.string().trim().min(1, "Title is required"),
   description: z.string().trim().min(1, "Description is required"),
@@ -52,7 +53,7 @@ function TodoItem({ todo, isOpen, handleAccordion }) {
   }
 
   return (
-    <div onClick={() => {handleAccordion(todo.id); setIsEdit(false)}} className="border boder-[#E4E9F2] rounded-[4px] px-4 py-3">
+    <div onClick={() => {handleAccordion(todo.id); setIsEdit(false)}} className="border boder-[#E4E9F2] rounded-[4px] px-4 py-3.5">
       <form onSubmit={handleSubmit(onSubmit)}>
       <div className="title flex gap-2 justify-between">
         <label className="mt-0.5">

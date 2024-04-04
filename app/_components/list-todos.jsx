@@ -9,12 +9,14 @@ function ListTodos() {
   const [activeTab, setActiveTab] = useState("All") 
   const [activeAccordion, setActiveAccordion] = useState(null)
   const [filteredTodos, setFilteredTodos] = useState([])
+  
   const todos = useSelector(state => state.todos.todos)
 
   const memoizedHandleTab = useCallback((activeTab) => {
     setActiveTab(activeTab)
   }, [])
 
+  // display on one accordion at a time
   const handleAccordion = (id) => {
     activeAccordion === id ? setActiveAccordion(null) : setActiveAccordion(id)
   }
