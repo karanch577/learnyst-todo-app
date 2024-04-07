@@ -9,6 +9,8 @@ function ListTodos() {
   const [activeTab, setActiveTab] = useState("All") 
   const [activeAccordion, setActiveAccordion] = useState(null)
   const [filteredTodos, setFilteredTodos] = useState([])
+
+  console.log("active accordion", activeAccordion)
   
   const todos = useSelector(state => state.todos.todos)
 

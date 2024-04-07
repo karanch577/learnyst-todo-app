@@ -1,8 +1,8 @@
 import AddTodoForm from "@/app/_components/add-todo-form";
 import ListTodos from "@/app/_components/list-todos";
-import dynamic from "next/dynamic";
+import ReduxProvider from "@/lib/redux-provider";
 
-const ReduxProvider = dynamic(() => import("@/lib/redux-provider"), { ssr: false })
+
 
 export default function Home() {
   return (
